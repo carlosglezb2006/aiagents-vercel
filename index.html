@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios de IA - Automatizaciones para tu Negocio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/framer-motion@10/dist/framer-motion.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #064e3b 100%);
+        }
+        .floating-shapes {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .shape {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        .shape:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+        .shape:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .card-expand {
+            transition: all 0.3s ease;
+        }
+        .card-expand.expanded {
+            transform: scale(1.02);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .fade-in:first-child {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen relative">
+    <!-- Fondo animado -->
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="relative z-10">
+        <!-- Hero Section -->
+        <section class="py-20 flex items-center justify-center px-4">
+            <div class="text-center max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight fade-in">
+                    Déjame ayudarte a mejorar tu negocio
+                </h1>
+                
+                <div class="text-lg md:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto fade-in">
+                    <p class="mb-6">
+                        En un mundo donde cada minuto cuenta, integrar inteligencia artificial en tu negocio ya no es una opción, es una necesidad. La IA no solo automatiza tareas repetitivas, sino que optimiza procesos, reduce errores y libera a tu equipo para centrarse en lo que realmente importa: hacer crecer tu empresa.
+                    </p>
+                    <p class="mb-6">
+                        Desde responder consultas de clientes en segundos hasta analizar grandes volúmenes de datos para tomar decisiones más inteligentes, la IA te permite ahorrar tiempo y dinero mientras aumentas la eficiencia y competitividad.
+                    </p>
+                    <p>
+                        No se trata solo de tecnología, sino de transformar la manera en que trabajas y obtener resultados tangibles desde el primer día.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Automatizaciones Section -->
+        <section class="py-20 px-4">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-center text-white mb-16 fade-in">
+                    Nuestras Automatizaciones
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Indexador de datos -->
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 cursor-pointer card-expand hover:bg-white/20 hover:scale-105 transition-all duration-300 fade-in" onclick="toggleCard('indexador')">
+                        <h3 class="text-xl font-semibold text-white mb-4">Indexador de datos</h3>
+                        <div id="indexador-content" class="hidden">
+                            <div class="space-y-4 text-gray-300">
+                                <div>
+                                    <h4 class="font-semibold text-emerald-400 mb-2">¿Qué hace?</h4>
+                                    <p class="text-sm">Organiza toda la información de tu empresa en un solo lugar, accesible y fácil de consultar.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-blue-400 mb-2">Beneficio:</h4>
+                                    <p class="text-sm">Mejora la productividad del equipo y acelera la toma de decisiones.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-purple-400 mb-2">Experiencia de trabajo:</h4>
+                                    <p class="text-sm">Ya no se pierden horas buscando archivos o informes.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-orange-400 mb-2">Tiempo ahorrado:</h4>
+                                    <p class="text-sm font-bold text-emerald-400">7–11 horas/semana</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 text-sm" id="indexador-hint">Haz clic para ver más detalles</p>
+                    </div>
+
+                    <!-- Guiones YouTube -->
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 cursor-pointer card-expand hover:bg-white/20 hover:scale-105 transition-all duration-300 fade-in" onclick="toggleCard('youtube')">
+                        <h3 class="text-xl font-semibold text-white mb-4">Guiones YouTube</h3>
+                        <div id="youtube-content" class="hidden">
+                            <div class="space-y-4 text-gray-300">
+                                <div>
+                                    <h4 class="font-semibold text-emerald-400 mb-2">¿Qué hace?</h4>
+                                    <p class="text-sm">Genera guiones completos para vídeos adaptados a tu estilo y audiencia.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-blue-400 mb-2">Beneficio:</h4>
+                                    <p class="text-sm">Contenido consistente y atractivo que engancha a la audiencia.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-purple-400 mb-2">Experiencia de trabajo:</h4>
+                                    <p class="text-sm">Reduce días de planificación y permite centrarte en la producción.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-orange-400 mb-2">Tiempo ahorrado:</h4>
+                                    <p class="text-sm font-bold text-emerald-400">5–9 horas por vídeo</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 text-sm" id="youtube-hint">Haz clic para ver más detalles</p>
+                    </div>
+
+                    <!-- Extractor de KPI's -->
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 cursor-pointer card-expand hover:bg-white/20 hover:scale-105 transition-all duration-300 fade-in" onclick="toggleCard('kpis')">
+                        <h3 class="text-xl font-semibold text-white mb-4">Extractor de KPI's</h3>
+                        <div id="kpis-content" class="hidden">
+                            <div class="space-y-4 text-gray-300">
+                                <div>
+                                    <h4 class="font-semibold text-emerald-400 mb-2">¿Qué hace?</h4>
+                                    <p class="text-sm">Recopila métricas clave de tu negocio y genera reportes claros automáticamente.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-blue-400 mb-2">Beneficio:</h4>
+                                    <p class="text-sm">Facilita la toma de decisiones estratégicas basadas en datos reales.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-purple-400 mb-2">Experiencia de trabajo:</h4>
+                                    <p class="text-sm">Evita cálculos manuales y revisiones de múltiples plataformas.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-orange-400 mb-2">Tiempo ahorrado:</h4>
+                                    <p class="text-sm font-bold text-emerald-400">3,5–5,5 horas/semana</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 text-sm" id="kpis-hint">Haz clic para ver más detalles</p>
+                    </div>
+
+                    <!-- Asistente CEO -->
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 cursor-pointer card-expand hover:bg-white/20 hover:scale-105 transition-all duration-300 fade-in" onclick="toggleCard('ceo')">
+                        <h3 class="text-xl font-semibold text-white mb-4">Asistente CEO</h3>
+                        <div id="ceo-content" class="hidden">
+                            <div class="space-y-4 text-gray-300">
+                                <div>
+                                    <h4 class="font-semibold text-emerald-400 mb-2">¿Qué hace?</h4>
+                                    <p class="text-sm">Gestiona tareas rutinarias, organiza información y crea resúmenes ejecutivos.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-blue-400 mb-2">Beneficio:</h4>
+                                    <p class="text-sm">Permite al CEO centrarse en decisiones estratégicas importantes.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-purple-400 mb-2">Experiencia de trabajo:</h4>
+                                    <p class="text-sm">Reduce estrés y asegura que no se pierdan detalles cruciales.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-orange-400 mb-2">Tiempo ahorrado:</h4>
+                                    <p class="text-sm font-bold text-emerald-400">9–13 horas/semana</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 text-sm" id="ceo-hint">Haz clic para ver más detalles</p>
+                    </div>
+
+                    <!-- Manager Shopify -->
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 cursor-pointer card-expand hover:bg-white/20 hover:scale-105 transition-all duration-300 fade-in" onclick="toggleCard('shopify')">
+                        <h3 class="text-xl font-semibold text-white mb-4">Manager Shopify</h3>
+                        <div id="shopify-content" class="hidden">
+                            <div class="space-y-4 text-gray-300">
+                                <div>
+                                    <h4 class="font-semibold text-emerald-400 mb-2">¿Qué hace?</h4>
+                                    <p class="text-sm">Automatiza la gestión de inventario, pedidos y productos en Shopify.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-blue-400 mb-2">Beneficio:</h4>
+                                    <p class="text-sm">Minimiza errores y libera tiempo para enfocarse en vender y crecer.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-purple-400 mb-2">Experiencia de trabajo:</h4>
+                                    <p class="text-sm">Evita tareas repetitivas y agiliza operaciones diarias.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-orange-400 mb-2">Tiempo ahorrado:</h4>
+                                    <p class="text-sm font-bold text-emerald-400">4–6 horas/día</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 text-sm" id="shopify-hint">Haz clic para ver más detalles</p>
+                    </div>
+
+                    <!-- Recolector de emails -->
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 cursor-pointer card-expand hover:bg-white/20 hover:scale-105 transition-all duration-300 fade-in" onclick="toggleCard('emails')">
+                        <h3 class="text-xl font-semibold text-white mb-4">Recolector de emails para conseguir clientes</h3>
+                        <div id="emails-content" class="hidden">
+                            <div class="space-y-4 text-gray-300">
+                                <div>
+                                    <h4 class="font-semibold text-emerald-400 mb-2">¿Qué hace?</h4>
+                                    <p class="text-sm">Encuentra y organiza correos de clientes potenciales automáticamente.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-blue-400 mb-2">Beneficio:</h4>
+                                    <p class="text-sm">Mejora la eficiencia del equipo comercial y aumenta oportunidades de venta.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-purple-400 mb-2">Experiencia de trabajo:</h4>
+                                    <p class="text-sm">Evita perder leads valiosos y reduce la prospección manual.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-orange-400 mb-2">Tiempo ahorrado:</h4>
+                                    <p class="text-sm font-bold text-emerald-400">7–11 horas/semana</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 text-sm" id="emails-hint">Haz clic para ver más detalles</p>
+                    </div>
+
+                    <!-- Icebreaker para clientes -->
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 cursor-pointer card-expand hover:bg-white/20 hover:scale-105 transition-all duration-300 fade-in" onclick="toggleCard('icebreaker')">
+                        <h3 class="text-xl font-semibold text-white mb-4">Icebreaker para conseguir clientes</h3>
+                        <div id="icebreaker-content" class="hidden">
+                            <div class="space-y-4 text-gray-300">
+                                <div>
+                                    <h4 class="font-semibold text-emerald-400 mb-2">¿Qué hace?</h4>
+                                    <p class="text-sm">Crea mensajes personalizados que captan la atención desde el primer contacto.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-blue-400 mb-2">Beneficio:</h4>
+                                    <p class="text-sm">Incrementa la tasa de respuesta de clientes potenciales.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-purple-400 mb-2">Experiencia de trabajo:</h4>
+                                    <p class="text-sm">Evita mensajes genéricos y mejora la percepción de la marca.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-orange-400 mb-2">Tiempo ahorrado:</h4>
+                                    <p class="text-sm font-bold text-emerald-400">5–9 horas/semana</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 text-sm" id="icebreaker-hint">Haz clic para ver más detalles</p>
+                    </div>
+
+                    <!-- Creador Blog SEO -->
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 cursor-pointer card-expand hover:bg-white/20 hover:scale-105 transition-all duration-300 fade-in" onclick="toggleCard('blog')">
+                        <h3 class="text-xl font-semibold text-white mb-4">Creador Blog SEO</h3>
+                        <div id="blog-content" class="hidden">
+                            <div class="space-y-4 text-gray-300">
+                                <div>
+                                    <h4 class="font-semibold text-emerald-400 mb-2">¿Qué hace?</h4>
+                                    <p class="text-sm">Genera artículos optimizados para Google automáticamente.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-blue-400 mb-2">Beneficio:</h4>
+                                    <p class="text-sm">Aumenta visitas, visibilidad y autoridad de la marca sin invertir tanto tiempo.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-purple-400 mb-2">Experiencia de trabajo:</h4>
+                                    <p class="text-sm">Reduce días de escritura y optimización manual.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-orange-400 mb-2">Tiempo ahorrado:</h4>
+                                    <p class="text-sm font-bold text-emerald-400">6–10 horas/artículo</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 text-sm" id="blog-hint">Haz clic para ver más detalles</p>
+                    </div>
+
+                    <!-- Avatar marca personal -->
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 cursor-pointer card-expand hover:bg-white/20 hover:scale-105 transition-all duration-300 fade-in" onclick="toggleCard('avatar')">
+                        <h3 class="text-xl font-semibold text-white mb-4">Avatar marca personal</h3>
+                        <div id="avatar-content" class="hidden">
+                            <div class="space-y-4 text-gray-300">
+                                <div>
+                                    <h4 class="font-semibold text-emerald-400 mb-2">¿Qué hace?</h4>
+                                    <p class="text-sm">Diseña un avatar digital que representa tu estilo y valores.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-blue-400 mb-2">Beneficio:</h4>
+                                    <p class="text-sm">Refuerza la identidad de marca y facilita la interacción con la audiencia.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-purple-400 mb-2">Experiencia de trabajo:</h4>
+                                    <p class="text-sm">Evita horas de diseño y ajustes manuales.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-orange-400 mb-2">Tiempo ahorrado:</h4>
+                                    <p class="text-sm font-bold text-emerald-400">3,5–5,5 horas/proyecto</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 text-sm" id="avatar-hint">Haz clic para ver más detalles</p>
+                    </div>
+
+                    <!-- Fijador de citas -->
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 cursor-pointer card-expand hover:bg-white/20 hover:scale-105 transition-all duration-300 fade-in" onclick="toggleCard('citas')">
+                        <h3 class="text-xl font-semibold text-white mb-4">Fijador de citas</h3>
+                        <div id="citas-content" class="hidden">
+                            <div class="space-y-4 text-gray-300">
+                                <div>
+                                    <h4 class="font-semibold text-emerald-400 mb-2">¿Qué hace?</h4>
+                                    <p class="text-sm">Agenda reuniones con clientes automáticamente, sin correos interminables.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-blue-400 mb-2">Beneficio:</h4>
+                                    <p class="text-sm">Optimiza el calendario y asegura que no se pierda ninguna cita importante.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-purple-400 mb-2">Experiencia de trabajo:</h4>
+                                    <p class="text-sm">Libera tiempo y evita errores de coordinación.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-orange-400 mb-2">Tiempo ahorrado:</h4>
+                                    <p class="text-sm font-bold text-emerald-400">4,5–7,5 horas/semana</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 text-sm" id="citas-hint">Haz clic para ver más detalles</p>
+                    </div>
+
+                    <!-- Agente Secretario -->
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 cursor-pointer card-expand hover:bg-white/20 hover:scale-105 transition-all duration-300 fade-in" onclick="toggleCard('secretario')">
+                        <h3 class="text-xl font-semibold text-white mb-4">Agente Secretario</h3>
+                        <div id="secretario-content" class="hidden">
+                            <div class="space-y-4 text-gray-300">
+                                <div>
+                                    <h4 class="font-semibold text-emerald-400 mb-2">¿Qué hace?</h4>
+                                    <p class="text-sm">Responde consultas, organiza información y gestiona tareas administrativas básicas.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-blue-400 mb-2">Beneficio:</h4>
+                                    <p class="text-sm">Libera tiempo del equipo y asegura que las tareas rutinarias se cumplan a tiempo.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-purple-400 mb-2">Experiencia de trabajo:</h4>
+                                    <p class="text-sm">Permite enfocarse en lo realmente importante y acelera la productividad general.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-orange-400 mb-2">Tiempo ahorrado:</h4>
+                                    <p class="text-sm font-bold text-emerald-400">9–13 horas/semana</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 text-sm" id="secretario-hint">Haz clic para ver más detalles</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 px-4">
+            <div class="max-w-2xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-8 fade-in">
+                    ¿Listo para transformar tu negocio?
+                </h2>
+                
+                <form class="space-y-6 bg-white/10 backdrop-blur-sm rounded-xl p-8 fade-in" onsubmit="handleFormSubmit(event)">
+                    <div>
+                        <label for="name" class="block text-white font-medium mb-2">
+                            Nombre completo
+                        </label>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            required
+                            class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                            placeholder="Tu nombre completo"
+                        />
+                    </div>
+                    
+                    <div>
+                        <label for="phone" class="block text-white font-medium mb-2">
+                            Número de teléfono
+                        </label>
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            required
+                            class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                            placeholder="Tu número de teléfono"
+                        />
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block text-white font-medium mb-2">
+                            Dirección de correo
+                        </label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            required
+                            class="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                            placeholder="tu@email.com"
+                        />
+                    </div>
+                    
+                    <button
+                        type="submit"
+                        class="w-full bg-gradient-to-r from-blue-900 to-emerald-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:shadow-lg hover:scale-105"
+                    >
+                        Agenda una llamada para solicitar más información
+                    </button>
+                </form>
+                
+                <div class="mt-12 fade-in">
+                    <a
+                        href="https://carlos-portfolio-iota.vercel.app/"
+                        class="inline-block bg-white/10 backdrop-blur-sm text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-white/20 hover:scale-105"
+                    >
+                        Volver a la página principal
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Animaciones de entrada
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Mostrar elementos inmediatamente al cargar
+        function showElementsOnLoad() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.classList.add('visible');
+                }, index * 200);
+            });
+        }
+
+        // Toggle de tarjetas
+        function toggleCard(cardId) {
+            const content = document.getElementById(cardId + '-content');
+            const hint = document.getElementById(cardId + '-hint');
+            const card = content.closest('.card-expand');
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                hint.classList.add('hidden');
+                card.classList.add('expanded');
+            } else {
+                content.classList.add('hidden');
+                hint.classList.remove('hidden');
+                card.classList.remove('expanded');
+            }
+        }
+
+        // Manejo del formulario
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = {
+                name: formData.get('name'),
+                phone: formData.get('phone'),
+                email: formData.get('email')
+            };
+
+            // Crear el enlace mailto con los datos
+            const subject = encodeURIComponent('Solicitud de información - Servicios de IA');
+            const body = encodeURIComponent(`
+Nombre: ${data.name}
+Teléfono: ${data.phone}
+Email: ${data.email}
+
+Solicita más información sobre los servicios de IA.
+            `);
+            
+            const mailtoLink = `mailto:cgbproyectosia@gmail.com?subject=${subject}&body=${body}`;
+            window.location.href = mailtoLink;
+        }
+
+        // Event listeners
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', showElementsOnLoad);
+    </script>
+</body>
+</html>
