@@ -1,82 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Servicios de IA - Automatizaciones para tu Negocio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/framer-motion@10/dist/framer-motion.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-        .gradient-bg {
-            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #064e3b 100%);
-        }
-        .floating-shapes {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 1;
-            pointer-events: none;
-        }
-        .shape {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-        .shape:nth-child(1) {
-            width: 80px;
-            height: 80px;
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-        .shape:nth-child(2) {
-            width: 120px;
-            height: 120px;
-            top: 60%;
-            right: 10%;
-            animation-delay: 2s;
-        }
-        .shape:nth-child(3) {
-            width: 60px;
-            height: 60px;
-            bottom: 20%;
-            left: 20%;
-            animation-delay: 4s;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        .card-expand {
-            transition: all 0.3s ease;
-        }
-        .card-expand.expanded {
-            transform: scale(1.02);
-        }
-        .fade-in {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .fade-in:first-child {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #064e3b 100%); }
+        .floating-shapes { position: fixed; width: 100%; height: 100%; overflow: hidden; z-index: 1; pointer-events: none; }
+        .shape { position: absolute; background: rgba(255, 255, 255, 0.1); border-radius: 50%; animation: float 6s ease-in-out infinite; }
+        .shape:nth-child(1) { width: 80px; height: 80px; top: 20%; left: 10%; animation-delay: 0s; }
+        .shape:nth-child(2) { width: 120px; height: 120px; top: 60%; right: 10%; animation-delay: 2s; }
+        .shape:nth-child(3) { width: 60px; height: 60px; bottom: 20%; left: 20%; animation-delay: 4s; }
+        @keyframes float { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-20px); } }
+        .card-expand { transition: all 0.3s ease; }
+        .card-expand.expanded { transform: scale(1.02); }
+        .fade-in { opacity: 0; transform: translateY(50px); transition: all 0.8s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .fade-in:first-child { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 <body class="gradient-bg min-h-screen relative">
     <!-- Fondo animado -->
-    <div class="floating-shapes">
+    <div class="floating-shapes" aria-hidden="true">
         <div class="shape"></div>
         <div class="shape"></div>
         <div class="shape"></div>
@@ -90,7 +39,7 @@
                 <h1 class="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight fade-in">
                     Déjame ayudarte a mejorar tu negocio
                 </h1>
-                
+
                 <div class="text-lg md:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto fade-in">
                     <p class="mb-6">
                         En un mundo donde cada minuto cuenta, integrar inteligencia artificial en tu negocio ya no es una opción, es una necesidad. La IA no solo automatiza tareas repetitivas, sino que optimiza procesos, reduce errores y libera a tu equipo para centrarse en lo que realmente importa: hacer crecer tu empresa.
@@ -402,74 +351,51 @@
             </div>
         </section>
 
-<!-- CTA Section -->
-<section class="py-20 px-4">
-  <div class="max-w-2xl mx-auto text-center">
-    <h2 class="text-3xl md:text-4xl font-bold text-white mb-8 fade-in">
-      ¿Listo para transformar tu negocio?
-    </h2>
+        <!-- CTA Section -->
+        <section class="py-20 px-4">
+            <div class="max-w-2xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-8 fade-in">
+                    ¿Listo para transformar tu negocio?
+                </h2>
 
-    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 fade-in">
-      <p class="text-lg text-gray-300 mb-6">
-        Rellena el formulario y tus datos se guardarán directamente en nuestra base.
-      </p>
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 fade-in">
+                    <p class="text-lg text-gray-300 mb-6">
+                        Rellena el formulario y tus datos se guardarán directamente en nuestra base.
+                    </p>
 
-      <form id="contactForm" class="space-y-4">
-        <input
-          type="text"
-          name="nombre"
-          placeholder="Nombre completo"
-          required
-          class="w-full p-3 rounded-lg"
-        />
-        <input
-          type="tel"
-          name="telefono"
-          placeholder="Teléfono"
-          required
-          class="w-full p-3 rounded-lg"
-        />
-        <input
-          type="email"
-          name="correo"
-          placeholder="Correo electrónico"
-          required
-          class="w-full p-3 rounded-lg"
-        />
-        <button
-          type="submit"
-          class="w-full bg-gradient-to-r from-blue-900 to-emerald-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:shadow-lg hover:scale-105"
-        >
-          Enviar
-        </button>
-      </form>
+                    <form id="contactForm" class="space-y-4">
+                        <input
+                            type="text"
+                            name="nombre"
+                            placeholder="Nombre completo"
+                            required
+                            class="w-full p-3 rounded-lg"
+                        />
+                        <input
+                            type="tel"
+                            name="telefono"
+                            placeholder="Teléfono"
+                            required
+                            class="w-full p-3 rounded-lg"
+                        />
+                        <input
+                            type="email"
+                            name="correo"
+                            placeholder="Correo electrónico"
+                            required
+                            class="w-full p-3 rounded-lg"
+                        />
+                        <button
+                            type="submit"
+                            class="w-full bg-gradient-to-r from-blue-900 to-emerald-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 hover:shadow-lg hover:scale-105"
+                        >
+                            Enviar
+                        </button>
+                    </form>
 
-      <p class="text-sm text-gray-400 mt-4" id="msg"></p>
-    </div>
-  </div>
-</section>
+                    <p id="msg" class="text-sm text-gray-400 mt-4" role="status" aria-live="polite"></p>
+                </div>
 
-<script>
-  const scriptURL = "https://script.google.com/macros/s/AKfycbwmGLtIPEQ1uoXzNgjnIukVBeQg7CmlLCTRtMGRfoxlOek4r_Yj9rGC3Dshjko3p4eYqg/exec";
-
-  document.getElementById("contactForm").addEventListener("submit", e => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-
-    fetch(scriptURL, { method: "POST", body: formData })
-      .then(response => {
-        document.getElementById("msg").innerText =
-          "¡Gracias! Tus datos se han registrado.";
-        e.target.reset();
-      })
-      .catch(error => {
-        document.getElementById("msg").innerText =
-          "Error al enviar, inténtalo más tarde.";
-        console.error("Error!", error.message);
-      });
-  });
-</script>
-                
                 <div class="mt-12 fade-in">
                     <a
                         href="https://carlos-portfolio-iota.vercel.app/"
@@ -482,82 +408,89 @@
         </section>
     </div>
 
+    <!-- Script único y consolidado -->
     <script>
+        // Pega aquí tu URL de Google Apps Script (si la cambias, solo actualiza esta variable)
+        const scriptURL = "https://script.google.com/macros/s/AKfycbwmGLtIPEQ1uoXzNgjnIukVBeQg7CmlLCTRtMGRfoxlOek4r_Yj9rGC3Dshjko3p4eYqg/exec";
+
         // Animaciones de entrada
         function animateOnScroll() {
             const elements = document.querySelectorAll('.fade-in');
             elements.forEach(element => {
                 const elementTop = element.getBoundingClientRect().top;
                 const elementVisible = 150;
-                
                 if (elementTop < window.innerHeight - elementVisible) {
                     element.classList.add('visible');
                 }
             });
         }
 
-        // Mostrar elementos inmediatamente al cargar
+        // Mostrar elementos secuencialmente al cargar
         function showElementsOnLoad() {
             const elements = document.querySelectorAll('.fade-in');
             elements.forEach((element, index) => {
-                setTimeout(() => {
-                    element.classList.add('visible');
-                }, index * 200);
+                setTimeout(() => element.classList.add('visible'), index * 200);
             });
         }
 
-        // Toggle de tarjetas
+        // Toggle de tarjetas (seguro si falta algún elemento)
         function toggleCard(cardId) {
             const content = document.getElementById(cardId + '-content');
             const hint = document.getElementById(cardId + '-hint');
+
+            if (!content) return;
             const card = content.closest('.card-expand');
-            
+
             if (content.classList.contains('hidden')) {
                 content.classList.remove('hidden');
-                hint.classList.add('hidden');
-                card.classList.add('expanded');
+                if (hint) hint.classList.add('hidden');
+                if (card) card.classList.add('expanded');
             } else {
                 content.classList.add('hidden');
-                hint.classList.remove('hidden');
-                card.classList.remove('expanded');
+                if (hint) hint.classList.remove('hidden');
+                if (card) card.classList.remove('expanded');
             }
         }
 
-        // Manejo del formulario
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            const formData = new FormData(event.target);
-            const data = {
-                name: formData.get('name'),
-                phone: formData.get('phone'),
-                email: formData.get('email')
-            };
+        // Manejo del formulario: un solo listener, campos correctos
+        (function setupForm() {
+            const form = document.getElementById('contactForm');
+            const msgEl = document.getElementById('msg');
+            if (!form) return;
 
-           // Enviar datos a Google Sheets en lugar de abrir el correo
-const scriptURL = "https://script.google.com/macros/s/AKfycbwmGLtIPEQ1uoXzNgjnIukVBeQg7CmlLCTRtMGRfoxlOek4r_Yj9rGC3Dshjko3p4eYqg/exec";
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                msgEl.classList.remove('text-green-400', 'text-red-400');
+                msgEl.classList.add('text-gray-300');
+                msgEl.innerText = 'Enviando...';
 
-function enviarDatos(data) {
-  const formData = new FormData();
-  formData.append("nombre", data.name);
-  formData.append("telefono", data.phone);
-  formData.append("correo", data.email);
+                try {
+                    // Enviamos el FormData tal cual (nombres: nombre, telefono, correo)
+                    const response = await fetch(scriptURL, {
+                        method: 'POST',
+                        body: new FormData(form)
+                    });
 
-  fetch(scriptURL, { method: "POST", body: formData })
-    .then(response => {
-      document.getElementById("msg").innerText =
-        "¡Gracias! Tus datos se han registrado.";
-    })
-    .catch(error => {
-      document.getElementById("msg").innerText =
-        "Error al enviar, inténtalo más tarde.";
-      console.error("Error!", error.message);
-    });
-}
+                    if (!response.ok) throw new Error('Error en la respuesta de red');
 
+                    msgEl.classList.remove('text-gray-300', 'text-red-400');
+                    msgEl.classList.add('text-green-400');
+                    msgEl.innerText = '¡Gracias! Tus datos se han registrado.';
+                    form.reset();
+                } catch (err) {
+                    console.error('Error al enviar:', err);
+                    msgEl.classList.remove('text-gray-300', 'text-green-400');
+                    msgEl.classList.add('text-red-400');
+                    msgEl.innerText = 'Error al enviar, inténtalo más tarde.';
+                }
+            });
+        })();
 
-        // Event listeners
+        // Event listeners globales
         window.addEventListener('scroll', animateOnScroll);
         window.addEventListener('load', showElementsOnLoad);
+        // ejecutar también al cargar el script para elementos ya visibles
+        animateOnScroll();
     </script>
 </body>
 </html>
